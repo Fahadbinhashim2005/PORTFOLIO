@@ -8,7 +8,8 @@
 :root {
     --bg-light: #e6e6e6;
     --text-dark: #111111;
-    --bg-dark: #121212;
+    --bg-dark: #000000; /* Pure black for the Apple aesthetic */
+    --card-dark: #1a1a1a; /* Dark gray for the Bento cards */
     --font-heading: 'Syne', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
@@ -20,16 +21,16 @@ body, html {
     overflow-x: hidden;
 }
 
-/* --- LIGHT HERO SECTION --- */
-.hero-section {
+/* --- LIGHT LANDING SECTION --- */
+.landing-section {
     background-color: var(--bg-light);
     color: var(--text-dark);
-    height: 100vh; /* Changed from min-height to strictly lock the screen */
+    height: 100vh; 
     position: relative;
     padding: 2rem 5%;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Prevents scrolling on the landing page */
+    overflow: hidden; 
 }
 
 .navbar {
@@ -38,7 +39,7 @@ body, html {
     align-items: center;
     padding-bottom: 2rem;
     position: relative;
-    z-index: 3; /* Keeps navbar clickable above the image */
+    z-index: 3; 
 }
 
 .logo {
@@ -60,7 +61,7 @@ body, html {
     letter-spacing: 1px;
 }
 
-.hero-content {
+.landing-content {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -69,7 +70,7 @@ body, html {
     margin-bottom: 15vh;
 }
 
-.hero-title {
+.landing-title {
     font-family: var(--font-heading);
     font-size: clamp(4rem, 12vw, 10rem);
     line-height: 0.9;
@@ -79,17 +80,7 @@ body, html {
     color: #fff;
 }
 
-.hero-subtitle {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.2rem;
-    font-weight: 500;
-    z-index: 2;
-}
-
-/* --- THE IMAGE CONTAINER FIX --- */
-.hero-image-container {
+.landing-image-container {
     position: absolute;
     bottom: 0; 
     left: 50%;
@@ -101,14 +92,14 @@ body, html {
     pointer-events: none; 
 }
 
-.hero-image-container img {
+.landing-image-container img {
     height: 100%;
     width: auto;
     object-fit: contain; 
     object-position: bottom; 
 }
 
-.hero-footer {
+.landing-footer {
     position: absolute;
     bottom: 2rem;
     left: 5%;
@@ -120,7 +111,7 @@ body, html {
     pointer-events: none;
 }
 
-.hero-footer > * {
+.landing-footer > * {
     pointer-events: auto;
 }
 
@@ -140,7 +131,6 @@ body, html {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
 
 .footer-right {
     display: flex;
@@ -169,14 +159,191 @@ body, html {
     margin-bottom: 1vw;
 }
 
+/* --- APPLE BENTO HERO SETTINGS --- */
+.bento-hero {
+    background-color: var(--bg-dark);
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 6rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-bento-container {
+    background-color: #111111; /* Dark Bento Card */
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+    max-width: 1400px;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Grid Pattern (like your reference) */
+.hero-bento-container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Left Side Layout */
+.hero-text-content {
+    flex: 1;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.hero-greeting {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.text-highlight {
+    font-weight: 800;
+}
+
+/* Dynamic Text Styling */
+.hero-dynamic-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-weight: 400;
+    color: #a0a0a0;
+    margin-bottom: 2rem;
+}
+
+.dynamic-text {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    color: #ffffff;
+    animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 1rem 1.8rem;
+    border-radius: 50px; /* Pill shape */
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.btn-primary:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.05); /* Slight inner glow */
+}
+
+.btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Right Side 3D Layout */
+.hero-3d-content {
+    flex: 1;
+    height: 600px;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.spline-wrapper {
+        width: 130%;
+        height: 130%; /* Makes it slightly taller than container */
+        overflow: hidden; /* Clips anything that spills out of the box */
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .spline-wrapper spline-viewer {
+        width: 100%;
+        height: 100%;
+        /* Pulls the viewer down just enough to push the watermark out of the hidden clip area */
+        margin-bottom: -40px; 
+    }
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hero-image-container {
+    .landing-image-container {
         height: 60vh;
     }
     
-    .hero-title {
+    .landing-title {
         mix-blend-mode: normal;
         color: var(--text-dark);
+    }
+
+    /* Stack the bento grid on mobile */
+    .hero-bento-container {
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .hero-3d-content {
+        flex: 1;
+        flex: 1.2; 
+        height: 600px;
+        z-index: 1;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        position: relative;
     }
 }

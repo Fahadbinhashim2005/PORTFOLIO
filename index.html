@@ -9,26 +9,23 @@
 </head>
 <body>
 
-    <header class="hero-section" id="home">
+    <!-- PHASE 1: LANDING SECTION -->
+    <!-- 1. LANDING PAGE -->
+    <header class="landing-section" id="home">
         <nav class="navbar">
             <div class="logo">Portfolio</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
             <div class="logo">FH</div>
         </nav>
         
-        <div class="hero-content">
-            <h1 class="hero-title">Fahad Bin<br>Hashim;</h1>
+        <div class="landing-content">
+            <h1 class="landing-title">Fahad Bin<br>Hashim;</h1>
         </div>
 
-        <div class="hero-image-container">
-            <img src="./images/hero-img.png" alt="Fahad Portrait" class="hero-img">
+        <div class="landing-image-container">
+            <img src="./images/hero-img.png" alt="Fahad Portrait" class="landing-img">
         </div>
 
-        <div class="hero-footer">
+        <div class="landing-footer">
             <div class="socials">
                 <a href="#">LinkedIn</a>
                 <a href="#">GitHub</a>
@@ -48,5 +45,35 @@
         </div>
     </header>
 
+    <!-- 2. APPLE BENTO HERO PAGE -->
+    <main class="bento-hero" id="about">
+        <!-- Main Bento Container holding the split layout -->
+        <div class="hero-bento-container">
+            
+            <!-- Left Side: Text and Buttons -->
+            <div class="hero-text-content">
+                <h1 class="hero-greeting">HEY... I'M<br><span class="text-highlight">FAHAD BIN HASHIM</span></h1>
+                
+                <h2 class="hero-dynamic-subtitle">
+                    I'm a <span id="dynamic-text" class="dynamic-text"></span><span class="cursor">|</span>
+                </h2>
+                
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Work <span>↗</span></a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch <span>▶</span></a>
+                </div>
+            </div>
+
+            <div class="hero-3d-content">
+                <div class="spline-wrapper">
+                    <script type="module" src="https://cdn.spline.design/@splinetool/viewer@2.0.25/build/spline-viewer.js"></script>
+                    <spline-viewer url="https://prod.spline.design/nWnVJ7EcLWpWW9qq/scene.splinecode"></spline-viewer>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
