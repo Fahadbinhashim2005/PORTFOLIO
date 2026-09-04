@@ -170,3 +170,226 @@ body, html {
         color: var(--text-dark);
     }
 }
+
+/* =========================================
+   PHASE 2: DARK HERO SECTION
+   ========================================= */
+
+.dark-hero {
+    background-color: var(--bg-dark); /* Uses your #000000 variable */
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 2rem 5%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Keeps the glowing spotlights from breaking the page width */
+}
+
+/* --- BACKGROUND GRID --- */
+.hero-grid {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* Draws a 50x50px grid using very faint white lines */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0;
+    pointer-events: none; /* Ensures the grid doesn't block mouse clicks */
+}
+
+/* --- AMBIENT SPOTLIGHTS --- */
+.hero-spotlight {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px); /* Creates the soft, diffused light effect */
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Top Left Glow (Slightly brighter/larger for the text side) */
+.left-spotlight {
+    width: 600px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.07); 
+    top: -15%;
+    left: -10%;
+}
+
+/* Bottom Right Glow */
+.right-spotlight {
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.04); 
+    bottom: -10%;
+    right: -10%;
+}
+
+/* --- HERO NAVBAR --- */
+.hero-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10; /* Keeps nav above the background effects */
+    width: 100%;
+}
+
+.hero-nav-links {
+    list-style: none;
+    display: flex;
+    gap: 3rem; /* Spacing between the links */
+}
+
+.hero-nav-links a {
+    text-decoration: none;
+    color: #888888; /* Dimmed gray for unselected state */
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.hero-nav-links a:hover {
+    color: #ffffff; /* Brightens on hover like your reference image */
+}
+
+/* =========================================
+   HERO CONTENT & LAYOUT
+   ========================================= */
+
+.hero-content-wrapper {
+    flex-grow: 1; /* Pushes to take remaining height below navbar */
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    margin-top: 2rem;
+}
+
+/* --- LEFT SIDE: TEXT --- */
+.hero-text-side {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 20; /* Higher z-index ensures buttons remain clickable even if 3D overlaps */
+}
+
+/* Pill Badge */
+.hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: #cccccc;
+    backdrop-filter: blur(5px);
+}
+
+.pill-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #4CAF50; /* Glowing green status dot */
+    border-radius: 50%;
+    box-shadow: 0 0 10px #4CAF50;
+}
+
+/* Typography */
+.hero-main-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3.5rem, 6vw, 6rem); /* Scales smoothly on different screens */
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #777777 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-dynamic-subtitle {
+    font-weight: 400;
+    color: #a0a0a0;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    margin-bottom: 1rem;
+}
+
+/* Blinking Cursor for your JS script */
+.cursor {
+    display: inline-block;
+    width: 3px;
+    color: #ffffff;
+    animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- BUTTONS --- */
+.hero-buttons-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-primary-white {
+    background: #ffffff;
+    color: #000000;
+    padding: 0.8rem 1.8rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-primary-white:hover {
+    background: #e6e6e6;
+    transform: translateY(-2px);
+}
+
+.btn-secondary-glass {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    padding: 0.8rem 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary-glass:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* --- RIGHT SIDE: 3D KEYBOARD --- */
+.hero-3d-side {
+    position: absolute;
+    right: -10%; /* Pushes slightly right so it's not perfectly centered */
+    width: 75%; /* Width extends past the 50% halfway mark to overlap text naturally */
+    height: 120%; /* Plenty of vertical room for the Spline canvas */
+    z-index: 5; /* Stays slightly behind the text to not block button clicks */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto; /* Allows you to interact with the keyboard */
+}
+
+.hero-3d-side spline-viewer {
+    width: 90%;
+    height: 100%;
+}
