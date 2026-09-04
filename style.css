@@ -1,4 +1,6 @@
-/* Base Resets & Variables */
+/* =========================================
+   BASE RESETS & VARIABLES
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -8,8 +10,7 @@
 :root {
     --bg-light: #e6e6e6;
     --text-dark: #111111;
-    --bg-dark: #000000; /* Pure black for the Apple aesthetic */
-    --card-dark: #1a1a1a; /* Dark gray for the Bento cards */
+    --bg-dark: #000000; 
     --font-heading: 'Syne', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
@@ -21,7 +22,9 @@ body, html {
     overflow-x: hidden;
 }
 
-/* --- LIGHT LANDING SECTION --- */
+/* =========================================
+   PHASE 1: LIGHT LANDING SECTION
+   ========================================= */
 .landing-section {
     background-color: var(--bg-light);
     color: var(--text-dark);
@@ -45,20 +48,6 @@ body, html {
 .logo {
     font-weight: 600;
     font-size: 1.1rem;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-dark);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .landing-content {
@@ -159,56 +148,40 @@ body, html {
     margin-bottom: 1vw;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .landing-image-container {
-        height: 60vh;
-    }
-    
-    .landing-title {
-        mix-blend-mode: normal;
-        color: var(--text-dark);
-    }
-}
-
 /* =========================================
    PHASE 2: DARK HERO SECTION
    ========================================= */
-
 .dark-hero {
-    background-color: var(--bg-dark); /* Uses your #000000 variable */
+    background-color: var(--bg-dark);
     color: #ffffff;
     min-height: 100vh;
     padding: 2rem 5%;
     position: relative;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Keeps the glowing spotlights from breaking the page width */
+    overflow: hidden; 
 }
 
-/* --- BACKGROUND GRID --- */
+/* Background Effects */
 .hero-grid {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    /* Draws a 50x50px grid using very faint white lines */
     background-image: 
         linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
     z-index: 0;
-    pointer-events: none; /* Ensures the grid doesn't block mouse clicks */
+    pointer-events: none; 
 }
 
-/* --- AMBIENT SPOTLIGHTS --- */
 .hero-spotlight {
     position: absolute;
     border-radius: 50%;
-    filter: blur(120px); /* Creates the soft, diffused light effect */
+    filter: blur(120px); 
     z-index: 0;
     pointer-events: none;
 }
 
-/* Top Left Glow (Slightly brighter/larger for the text side) */
 .left-spotlight {
     width: 600px;
     height: 600px;
@@ -217,7 +190,6 @@ body, html {
     left: -10%;
 }
 
-/* Bottom Right Glow */
 .right-spotlight {
     width: 500px;
     height: 500px;
@@ -226,25 +198,25 @@ body, html {
     right: -10%;
 }
 
-/* --- HERO NAVBAR --- */
+/* Hero Navbar */
 .hero-navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    z-index: 10; /* Keeps nav above the background effects */
+    z-index: 10; 
     width: 100%;
 }
 
 .hero-nav-links {
     list-style: none;
     display: flex;
-    gap: 3rem; /* Spacing between the links */
+    gap: 3rem; 
 }
 
 .hero-nav-links a {
     text-decoration: none;
-    color: #888888; /* Dimmed gray for unselected state */
+    color: #888888;
     font-size: 0.9rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -253,15 +225,12 @@ body, html {
 }
 
 .hero-nav-links a:hover {
-    color: #ffffff; /* Brightens on hover like your reference image */
+    color: #ffffff;
 }
 
-/* =========================================
-   HERO CONTENT & LAYOUT
-   ========================================= */
-
+/* Hero Content Wrapper */
 .hero-content-wrapper {
-    flex-grow: 1; /* Pushes to take remaining height below navbar */
+    flex-grow: 1; 
     display: flex;
     align-items: center;
     position: relative;
@@ -269,7 +238,7 @@ body, html {
     margin-top: 2rem;
 }
 
-/* --- LEFT SIDE: TEXT --- */
+/* Left Side: Text */
 .hero-text-side {
     width: 50%;
     display: flex;
@@ -277,10 +246,9 @@ body, html {
     align-items: flex-start;
     gap: 1.5rem;
     position: relative;
-    z-index: 20; /* Higher z-index ensures buttons remain clickable even if 3D overlaps */
+    z-index: 20; 
 }
 
-/* Pill Badge */
 .hero-pill {
     display: inline-flex;
     align-items: center;
@@ -297,15 +265,14 @@ body, html {
 .pill-dot {
     width: 8px;
     height: 8px;
-    background-color: #4CAF50; /* Glowing green status dot */
+    background-color: #4CAF50; 
     border-radius: 50%;
     box-shadow: 0 0 10px #4CAF50;
 }
 
-/* Typography */
 .hero-main-title {
     font-family: var(--font-heading);
-    font-size: clamp(3.5rem, 6vw, 6rem); /* Scales smoothly on different screens */
+    font-size: clamp(3.5rem, 6vw, 6rem); 
     line-height: 1.1;
     letter-spacing: -0.02em;
     color: #ffffff;
@@ -324,7 +291,6 @@ body, html {
     margin-bottom: 1rem;
 }
 
-/* Blinking Cursor for your JS script */
 .cursor {
     display: inline-block;
     width: 3px;
@@ -337,25 +303,30 @@ body, html {
     50% { opacity: 0; }
 }
 
-/* --- BUTTONS --- */
+/* Right Side: 3D Keyboard */
+.hero-3d-side {
+    position: absolute;
+    right: -10%; 
+    width: 75%; 
+    height: 120%; 
+    z-index: 5; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto; 
+}
+
+.hero-3d-side spline-viewer {
+    width: 90%;
+    height: 100%;
+}
+
+/* =========================================
+   BUTTON STYLES & ANIMATIONS
+   ========================================= */
 .hero-buttons-container {
     display: flex;
     gap: 1rem;
-}
-
-.btn-primary-white {
-    background: #ffffff;
-    color: #000000;
-    padding: 0.8rem 1.8rem;
-    border-radius: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.btn-primary-white:hover {
-    background: #e6e6e6;
-    transform: translateY(-2px);
 }
 
 .btn-secondary-glass {
@@ -363,7 +334,7 @@ body, html {
     color: #ffffff;
     padding: 0.8rem 1.8rem;
     border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
+    border-radius: 6px;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.2s ease;
@@ -376,20 +347,142 @@ body, html {
     transform: translateY(-2px);
 }
 
-/* --- RIGHT SIDE: 3D KEYBOARD --- */
-.hero-3d-side {
-    position: absolute;
-    right: -10%; /* Pushes slightly right so it's not perfectly centered */
-    width: 75%; /* Width extends past the 50% halfway mark to overlap text naturally */
-    height: 120%; /* Plenty of vertical room for the Spline canvas */
-    z-index: 5; /* Stays slightly behind the text to not block button clicks */
-    display: flex;
+/* Vengeance UI Button Translation */
+.vengeance-btn {
+    position: relative;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    pointer-events: auto; /* Allows you to interact with the keyboard */
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    background-color: #000000;
+    border: 1px solid #222222;
+    color: #f5f5f5; 
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.hero-3d-side spline-viewer {
-    width: 90%;
-    height: 100%;
+.vengeance-btn:hover {
+    transform: scale(1.02);
+}
+
+.vengeance-btn:active {
+    transform: scale(0.97);
+}
+
+.v-btn-text {
+    position: relative;
+    z-index: 10;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+    -webkit-mask-image: linear-gradient(-75deg, #000 30%, rgba(0,0,0,0.3) 50%, #000 70%);
+    -webkit-mask-size: 200% 100%;
+    animation: v-text-mask 2s linear infinite;
+}
+
+.v-btn-border {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px; 
+    background: linear-gradient(-75deg, transparent 30%, rgba(255, 255, 255, 0.66) 50%, transparent 70%);
+    background-size: 200% 100%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: v-border-shine 2s linear infinite;
+}
+
+@keyframes v-text-mask {
+    0% { -webkit-mask-position: 200% 0; }
+    50% { -webkit-mask-position: -100% 0; }
+    100% { -webkit-mask-position: -100% 0; }
+}
+
+@keyframes v-border-shine {
+    0% { background-position: 100% 0; opacity: 0; }
+    10% { opacity: 1; }
+    40% { opacity: 1; }
+    50% { background-position: 0% 0; opacity: 0; }
+    100% { background-position: 0% 0; opacity: 0; }
+}
+
+/* =========================================
+   SPECULAR MOUSE-TRACKING BUTTON (Merged Style)
+   ========================================= */
+
+.specular-btn {
+    --sb-radius: 24px;
+    --sb-text-color: #f5f5f5;
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* Using their 'md' size padding */
+    padding: 14px 30px; 
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    color: var(--sb-text-color);
+    background-color: #111111; 
+    border-radius: var(--sb-radius);
+    
+    /* Their premium glass and shadow effects */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 8px 24px rgba(0, 0, 0, 0.25);
+    
+    text-decoration: none;
+    overflow: hidden; /* Keeps our CSS light from bleeding outside the border */
+    transition: transform 0.15s ease;
+}
+
+.specular-btn:hover {
+    transform: scale(1.02);
+}
+
+.specular-btn:active {
+    transform: scale(0.97); /* Matched to their exact scale value */
+}
+
+/* The text layer */
+.sb-label {
+    position: relative;
+    z-index: 2; /* Matched to their label z-index */
+}
+
+/* The glowing, mouse-following border (Our lightweight replacement for their canvas) */
+.sb-border {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px; /* The thickness of the line */
+    background: radial-gradient(
+        circle 70px at var(--x, 50%) var(--y, 50%),
+        rgba(255, 255, 255, 0.9) 0%,
+        transparent 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    
+    z-index: 5;
+    opacity: var(--active, 0);
+    transition: opacity 0.3s ease;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .landing-image-container {
+        height: 60vh;
+    }
+    
+    .landing-title {
+        mix-blend-mode: normal;
+        color: var(--text-dark);
+    }
 }

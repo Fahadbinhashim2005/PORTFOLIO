@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const dynamicTextElement = document.getElementById("dynamic-text");
     
     const roles = [
-        "Web Developer", 
-        "AI Enthusiast", 
-        "Director",
-        "UI/UX Designer"
+        "Full-Stack Developer", 
+        "VFX Artist", 
+        "IoT Enthusiast",
+        "Filmmaker"
     ];
     
     let roleIndex = 0;
@@ -40,8 +40,38 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(typeEffect, typeSpeed);
     }
     
-    // Start the typing effect
     if (dynamicTextElement) {
         setTimeout(typeEffect, 1000);
+    }
+});
+
+// =========================================
+// SPECULAR BUTTON MOUSE TRACKING
+// =========================================
+document.addEventListener("DOMContentLoaded", function() {
+    const specularBtn = document.getElementById("contact-btn");
+    
+    if (specularBtn) {
+        // Track mouse movement inside the button
+        specularBtn.addEventListener("mousemove", (e) => {
+            const rect = specularBtn.getBoundingClientRect();
+            // Calculate mouse position relative to the button
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Send coordinates to CSS variables
+            specularBtn.style.setProperty("--x", `${x}px`);
+            specularBtn.style.setProperty("--y", `${y}px`);
+        });
+
+        // Fade the light in when mouse enters
+        specularBtn.addEventListener("mouseenter", () => {
+            specularBtn.style.setProperty("--active", `1`);
+        });
+
+        // Fade the light out when mouse leaves
+        specularBtn.addEventListener("mouseleave", () => {
+            specularBtn.style.setProperty("--active", `0`);
+        });
     }
 });
